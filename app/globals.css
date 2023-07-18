@@ -16,6 +16,15 @@
   }
 }
 
+@layer utilities {
+  .custom-rounded {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 50px;
+  }
+}
+
 body {
   /* color: rgb(var(--foreground-rgb)); */
   /* background: linear-gradient(
