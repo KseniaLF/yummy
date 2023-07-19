@@ -5,7 +5,7 @@ import { BsFacebook, BsYoutube, BsTwitter, BsInstagram } from "react-icons/bs";
 
 export const Footer = () => {
   return (
-    <footer className="mt-7">
+    <footer className="mt-36">
       <div className="bg-second text-white p-4 flex flex-col items-center gap-8">
         <p>
           <Link href="/" className="flex items-center">

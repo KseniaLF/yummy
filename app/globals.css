@@ -30,6 +30,45 @@
   .hover-bg {
     @apply hover:bg-main transition duration-300 ease-in-out;
   }
+
+  .dual-bg-image {
+    background-image: url("/hero.png"), url("/hero-bg.png");
+    background-attachment: fixed;
+    background-size: 500px;
+    background-position: right top;
+    background-repeat: no-repeat;
+  }
+
+  .custom-bg {
+    position: absolute;
+    right: 30px;
+    top: -130px;
+    height: 650px;
+    width: 650px;
+    background-image: url("/hero.png"); /* Одно фоновое изображение для .custom-bg */
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 320px;
+
+    z-index: -1;
+  }
+
+  @media screen and (min-width: 768px) {
+    .custom-bg {
+      top: -50px;
+      right: 0;
+      background-size: 380px;
+      background-position: right;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .custom-bg {
+      top: 0;
+      background-size: 600px;
+      background-position: left;
+    }
+  }
 }
 
 body {
