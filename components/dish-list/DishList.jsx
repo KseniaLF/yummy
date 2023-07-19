@@ -1,19 +1,27 @@
 import Image from "next/image";
 import { categories } from "./data.json";
+import { Button } from "../Button";
 
 export const DishList = ({ title, dishesArr }) => {
   console.log(categories[0]);
 
   return (
-    <div className="mt-40">
+    <div className="mt-40 ">
       {categories.map((category) => {
         return (
-          <div className="mt-16" key={category.name}>
-            <h1>{category.name}</h1>
+          <div className="mt-24 flex flex-col gap-12" key={category.name}>
+            <h2 className="text-[44px]">{category.name}</h2>
 
-            <ul className="flex gap-4">
-              {category.recipes.map((recipe) => (
-                <li className="relative" key={recipe.dish}>
+            <ul className="flex gap-4 justify-center">
+              {category.recipes.map((recipe, index) => (
+                <li
+                  className={`relative ${index === 1 && "hidden md:block"}
+                   ${
+                     index >= 2 &&
+                     "hidden md:hidden lg:block" /* Скрываем элементы, индекс которых >= 2, только на медиа-запросах ширины экрана >= 768px */
+                   } `}
+                  key={recipe.dish}
+                >
                   <Image
                     className="rounded-lg object-cover "
                     src="/i.jpg"
@@ -27,6 +35,10 @@ export const DishList = ({ title, dishesArr }) => {
                 </li>
               ))}
             </ul>
+
+            <div className="text-end">
+              <Button>See all</Button>
+            </div>
           </div>
         );
       })}
