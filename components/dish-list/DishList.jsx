@@ -23,11 +23,11 @@ export const DishList = ({ title, dishesArr }) => {
                   key={recipe.dish}
                 >
                   <Image
-                    className="rounded-lg object-cover "
                     src="/i.jpg"
                     alt="Logo"
                     width={300}
                     height={320}
+                    className="w-[100%] rounded-lg object-cover "
                   />
                   <div className="absolute inset-x-5 bottom-5 rounded-lg text-center p-4 bg-white hover-bg">
                     {recipe.dish}
