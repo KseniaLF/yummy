@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button";
+import { DishList } from "@/components/dish-list/DishList";
 
 export default function Home() {
   return (
@@ -27,6 +28,8 @@ export default function Home() {
           </Button>
         </div>
       </div>
+
+      <DishList title={"Breakfast"} />
     </main>
   );
 }
