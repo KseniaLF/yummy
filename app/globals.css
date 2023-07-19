@@ -23,6 +23,13 @@
     border-top-left-radius: 20px;
     border-bottom-left-radius: 50px;
   }
+
+  .hover-text {
+    @apply text-main hover:text-white transition duration-200 ease-out cursor-pointer;
+  }
+  .hover-bg {
+    @apply hover:bg-main transition duration-300 ease-in-out;
+  }
 }
 
 body {

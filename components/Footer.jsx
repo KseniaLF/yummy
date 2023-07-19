@@ -5,8 +5,8 @@ import { BsFacebook, BsYoutube, BsTwitter, BsInstagram } from "react-icons/bs";
 
 export const Footer = () => {
   return (
-    <footer className="">
-      <div className="p-4 container flex flex-col items-center gap-8">
+    <footer className="mt-7">
+      <div className="bg-second text-white p-4 flex flex-col items-center gap-8">
         <p>
           <Link href="/" className="flex items-center">
             <Image src="/logo.png" alt="Logo" width={44} height={44} />
@@ -21,19 +21,21 @@ export const Footer = () => {
 
         <ul className="flex justify-center gap-3">
           <li>
-            <BsFacebook className="text-2xl md:text-3xl" />
+            <BsFacebook className="text-2xl md:text-3xl hover-text" />
           </li>
           <li>
-            <BsYoutube className="text-2xl md:text-3xl" />
+            <BsYoutube className="text-2xl md:text-3xl hover-text" />
           </li>
           <li>
-            <BsTwitter className="text-2xl md:text-3xl" />
+            <BsTwitter className="text-2xl md:text-3xl hover-text" />
           </li>
           <li>
-            <BsInstagram className="text-2xl md:text-3xl hover:text-main" />
+            <BsInstagram className="text-2xl md:text-3xl hover-text" />
           </li>
         </ul>
       </div>
+
+      <div className="container text-center p-7">2023 Created by Ksenia</div>
     </footer>
   );
 };
