@@ -1,23 +1,29 @@
+import { SectionTitle } from "@/components/UI/SectionTitle";
 import Link from "next/link";
+import { categories } from "../../components/dish-list/data.json";
 
 async function getPokemons() {
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon`, {
-    next: { revalidate: 10 },
-  });
-  return res.json();
+  try {
+    const promiseA = new Promise((resolve) => {
+      resolve(categories);
+    });
+    return await promiseA;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 export default async function About() {
-  const { results } = await getPokemons();
-  console.log(results);
+  const recipes = await getPokemons();
 
   return (
     <main className="container">
-      Categories
+      <SectionTitle>Categories</SectionTitle>
+
       <ul>
-        {results.map((pokemon) => (
-          <li key={pokemon.name}>
-            <Link href={`/about/${pokemon.name}`}>- {pokemon.name}</Link>
+        {recipes.map((recipe) => (
+          <li key={recipe.name}>
+            <Link href={`/about/${recipe.name}`}>- {recipe.name}</Link>
           </li>
         ))}
       </ul>

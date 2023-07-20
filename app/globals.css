@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -42,7 +44,7 @@
   .custom-bg {
     position: absolute;
     right: 30px;
-    top: -130px;
+    top: -100px;
     height: 650px;
     width: 650px;
     background-image: url("/hero.png"); /* Одно фоновое изображение для .custom-bg */
@@ -94,6 +96,7 @@ li,
 input,
 p {
   font-family: cursive;
+  /* font-family: "Poppins", sans-serif; */
 }
 
 body {
