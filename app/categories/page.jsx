@@ -49,13 +49,13 @@ export default function About() {
     <main className="container">
       <SectionTitle>Categories</SectionTitle>
 
-      <ul className="flex gap-2">
+      <ul className="flex gap-2 overflow-x-auto whitespace-nowrap">
         {categoriesArr.map(({ name }) => (
           <li key={name}>
             <button
               onClick={() => hanadleClick(name)}
               type="button"
-              className={`p-2 ${name === activeCategory && "text-main"}`}
+              className={`p-2 ${name === activeCategory ? "text-main" : ""}`}
             >
               {name}
             </button>
