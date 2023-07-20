@@ -71,7 +71,33 @@
   }
 }
 
+@layer base {
+  html {
+    /* font-family: Proxima Nova, system-ui, sans-serif; */
+    @apply font-sans;
+  }
+
+  body {
+    @apply font-sans;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+div,
+li,
+p {
+  font-family: cursive;
+}
+
 body {
+  font-size: 18px;
+
   /* color: rgb(var(--foreground-rgb)); */
   /* background: linear-gradient(
       to bottom,
