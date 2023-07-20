@@ -15,8 +15,13 @@ export const Footer = () => {
         </p>
 
         <ul className="flex flex-col items-center">
-          <li>Ingredients</li>
-          <li>Add Recipes</li>
+          <li className="hover-text-white">Ingredients</li>
+          <li className="hover-text-white">Add Recipes</li>
+          <li>
+            <Link className="hover-text-white" href="/categories">
+              Categories
+            </Link>
+          </li>
         </ul>
 
         <ul className="flex justify-center gap-3">

@@ -29,6 +29,9 @@
   .hover-text {
     @apply text-main hover:text-white transition duration-200 ease-out cursor-pointer;
   }
+  .hover-text-white {
+    @apply text-white hover:text-main transition duration-200 ease-out cursor-pointer;
+  }
   .hover-bg {
     @apply hover:bg-main transition duration-300 ease-in-out;
   }

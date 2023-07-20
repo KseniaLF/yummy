@@ -15,6 +15,7 @@ async function getPokemons() {
 
 export default async function About() {
   const recipes = await getPokemons();
+  console.log(recipes);
 
   return (
     <main className="container">
