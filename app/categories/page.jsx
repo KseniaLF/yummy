@@ -1,6 +1,6 @@
 import { SectionTitle } from "@/components/UI/SectionTitle";
-import Link from "next/link";
 import { categories } from "../../components/dish-list/data.json";
+import { CategoriesList } from "./CategoriesList";
 
 async function getPokemons() {
   try {
@@ -20,13 +20,13 @@ export default async function About() {
     <main className="container">
       <SectionTitle>Categories</SectionTitle>
 
-      <ul>
+      <ul className="flex gap-2">
         {recipes.map((recipe) => (
-          <li key={recipe.name}>
-            <Link href={`/about/${recipe.name}`}>- {recipe.name}</Link>
-          </li>
+          <li key={recipe.name}>{recipe.name}</li>
         ))}
       </ul>
+
+      <CategoriesList recipeArr={recipes[0].recipes} />
     </main>
   );
 }
