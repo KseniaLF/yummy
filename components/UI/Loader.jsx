@@ -1,3 +1,3 @@
 export const Loader = () => {
-  return <>LOADDDDD</>;
+  return <div className="text-center">LOADDDDD</div>;
 };
