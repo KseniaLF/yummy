@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Categories", href: "/categories" },
+  { label: "About", href: "/about/breakfast" },
+  { label: "Categories", href: "/categories/breakfast" },
 ];
 export const Navigation = () => {
   const pathname = usePathname();
