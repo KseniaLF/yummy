@@ -1,0 +1,86 @@
+export const categories = [
+  {
+    name: "Breakfast",
+    recipes: [
+      {
+        dish: "Scrambled Eggs",
+        image: "https://example.com/scrambled-eggs.jpg",
+      },
+      {
+        dish: "Pancakes",
+        image: "https://example.com/pancakes.jpg",
+      },
+      {
+        dish: "Avocado Toast",
+        image: "https://example.com/avocado-toast.jpg",
+      },
+      {
+        dish: "Smoothie Bowl",
+        image: "https://example.com/smoothie-bowl.jpg",
+      },
+    ],
+  },
+  {
+    name: "Miscellaneous",
+    recipes: [
+      {
+        dish: "Caprese Salad",
+        image: "https://example.com/caprese-salad.jpg",
+      },
+      {
+        dish: "Stuffed Mushrooms",
+        image: "https://example.com/stuffed-mushrooms.jpg",
+      },
+      {
+        dish: "Bruschetta",
+        image: "https://example.com/bruschetta.jpg",
+      },
+      {
+        dish: "Spinach and Artichoke Dip",
+        image: "https://example.com/spinach-artichoke-dip.jpg",
+      },
+    ],
+  },
+  {
+    name: "Chicken",
+    recipes: [
+      {
+        dish: "Grilled Chicken Breast",
+        image: "https://example.com/grilled-chicken.jpg",
+      },
+      {
+        dish: "Chicken Alfredo Pasta",
+        image: "https://example.com/chicken-alfredo.jpg",
+      },
+      {
+        dish: "Honey Mustard Chicken",
+        image: "https://example.com/honey-mustard-chicken.jpg",
+      },
+      {
+        dish: "Chicken Fajitas",
+        image: "https://example.com/chicken-fajitas.jpg",
+      },
+    ],
+  },
+  {
+    name: "Desserts",
+    recipes: [
+      {
+        dish: "Chocolate Chip Cookies",
+        image: "https://example.com/chocolate-chip-cookies.jpg",
+      },
+      {
+        dish: "Cheesecake",
+        image: "https://example.com/cheesecake.jpg",
+      },
+      {
+        dish: "Apple Pie",
+        image: "https://example.com/apple-pie.jpg",
+      },
+      {
+        dish: "Brownies",
+        image: "https://example.com/brownies.jpg",
+      },
+    ],
+  },
+];
