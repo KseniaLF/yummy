@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Navigation } from "./Navigation";
+import { UserInfo } from "./user/UserInfo";
 
 export const Header = () => {
   return (
@@ -9,14 +10,11 @@ export const Header = () => {
         <Image src="/logo.png" alt="Logo" width={44} height={44} />
       </Link>
 
-      {/* <nav className="flex gap-7">
-        <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
-        <Link href="/categories">Categories</Link>
-      </nav> */}
       <Navigation />
 
       <span className="">User</span>
+
+      <UserInfo />
     </header>
   );
 };
