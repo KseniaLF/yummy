@@ -30,7 +30,7 @@ export const Navigation = () => {
         );
       })}
 
-      {session?.data && <Link href={"/profile"}>Profile</Link>}
+      {session?.data && <Link href={"/categories/breakfast"}>Profile</Link>}
 
       {session?.data ? (
         <Link href="#" onClick={() => signOut({ callbackUrl: "/" })}>
