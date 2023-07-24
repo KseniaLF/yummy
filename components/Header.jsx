@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Navigation } from "./Navigation";
+import { Navigation } from "./nav/Navigation";
 import { UserInfo } from "./user/UserInfo";
+import { Burger } from "./nav/Burger";
 
 export const Header = () => {
   return (
@@ -12,9 +13,9 @@ export const Header = () => {
 
       <Navigation />
 
-      <span className="">User</span>
-
       <UserInfo />
+
+      <Burger />
     </header>
   );
 };

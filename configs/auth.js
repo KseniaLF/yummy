@@ -1,6 +1,7 @@
 import Credentials from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 
+// test!!!
 export const authConfig = {
   providers: [
     GoogleProvider({

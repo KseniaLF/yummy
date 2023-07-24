@@ -9,6 +9,7 @@ const navItems = [
   { label: "About", href: "/about/breakfast" },
   { label: "Categories", href: "/categories/breakfast" },
 ];
+
 export const Navigation = () => {
   const pathname = usePathname();
   const session = useSession();
@@ -16,7 +17,7 @@ export const Navigation = () => {
   console.log(session);
 
   return (
-    <nav className="flex gap-7">
+    <nav className="hidden lg:flex gap-7">
       {navItems.map((item) => {
         const isActive = pathname === item.href;
         return (

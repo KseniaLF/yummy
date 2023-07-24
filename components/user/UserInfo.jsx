@@ -7,12 +7,18 @@ export async function UserInfo() {
 
   console.log(session);
   return (
-    <div>
-      {session?.user?.name}
-      {/* {console.log(session.user.image)} */}
+    <div className="flex gap-3 items-center">
       {session?.user?.image && (
-        <img className="rounded-full" src={session.user.image} alt="" />
+        <img
+          className="rounded-full"
+          width={50}
+          height={50}
+          src={session.user.image}
+          alt=""
+        />
       )}
+
+      {session?.user?.name}
     </div>
   );
 }
