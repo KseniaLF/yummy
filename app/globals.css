@@ -50,7 +50,7 @@
     top: -100px;
     height: 650px;
     width: 650px;
-    background-image: url("/hero.png"); /* Одно фоновое изображение для .custom-bg */
+    background-image: url("/hero.png");
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: 320px;
