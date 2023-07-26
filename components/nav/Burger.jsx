@@ -6,7 +6,7 @@ import {
   MenubarItem,
   MenubarMenu,
   MenubarTrigger,
-} from "@/components/ui/menubar";
+} from "@/components/UI/menubar";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -40,21 +40,3 @@ export const Burger = () => {
     </Menubar>
   );
 };
-
-// <Menubar className="block lg:hidden" type="button">
-// <MenubarMenu>
-//   <MenubarTrigger className="">Menu</MenubarTrigger>
-
-// <MenubarContent>
-//   {navItems.map((item) => {
-//     const isActive = pathname === item.href;
-//     return (
-//       <MenubarItem key={item.label}>
-//         <Link className={isActive ? "text-main" : ""} href={item.href}>
-//           {item.label}
-//         </Link>
-//       </MenubarItem>
-//     );
-//   })}
-// </MenubarContent>
-// </MenubarMenu>
