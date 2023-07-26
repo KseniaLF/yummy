@@ -23,6 +23,7 @@ export const Burger = () => {
     <Menubar className="block lg:hidden" type="button">
       <MenubarMenu>
         <MenubarTrigger>Menu</MenubarTrigger>
+
         <MenubarContent>
           {navItems.map((item) => {
             const isActive = pathname === item.href;
@@ -39,3 +40,21 @@ export const Burger = () => {
     </Menubar>
   );
 };
+
+// <Menubar className="block lg:hidden" type="button">
+// <MenubarMenu>
+//   <MenubarTrigger className="">Menu</MenubarTrigger>
+
+// <MenubarContent>
+//   {navItems.map((item) => {
+//     const isActive = pathname === item.href;
+//     return (
+//       <MenubarItem key={item.label}>
+//         <Link className={isActive ? "text-main" : ""} href={item.href}>
+//           {item.label}
+//         </Link>
+//       </MenubarItem>
+//     );
+//   })}
+// </MenubarContent>
+// </MenubarMenu>
