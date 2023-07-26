@@ -9,7 +9,7 @@ async function getPokemons(id) {
       resolve(filteredArr);
     });
 
-    await new Promise((resolve) => setTimeout(resolve, 10000)); // so good!!!
+    // await new Promise((resolve) => setTimeout(resolve, 10000)); // so good!!!
     return promiseA;
   } catch (error) {
     console.error(error);

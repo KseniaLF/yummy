@@ -2,7 +2,6 @@ import { Card } from "@/components/dish-list/Card";
 import Link from "next/link";
 
 export const CategoriesList = ({ recipeArr }) => {
-  console.log(recipeArr);
   return (
     <ul className="flex flex-wrap gap-4 justify-center mt-8 md:mt-12">
       {recipeArr.map((recipe) => (
