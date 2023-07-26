@@ -20,7 +20,7 @@ export async function UserInfo() {
   return (
     <Menubar>
       <MenubarMenu>
-        <MenubarTrigger className="flex gap-3 items-center p-2">
+        <MenubarTrigger className="flex gap-3 items-center">
           {session?.user?.image && (
             <img
               className="rounded-full"
