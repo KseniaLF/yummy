@@ -7,7 +7,7 @@ import { Burger } from "./nav/Burger";
 export const Header = () => {
   return (
     <header className="container flex gap-2 justify-between mt-4">
-      <Link href="/">
+      <Link href="/" className="text-center flex items-center">
         <Image src="/logo.png" alt="Logo" width={44} height={44} />
       </Link>
 

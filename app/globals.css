@@ -35,6 +35,9 @@
   .hover-bg {
     @apply hover:bg-main transition duration-300 ease-in-out;
   }
+  .hover-btn {
+    @apply bg-main hover:bg-second hover:text-white transition duration-300 ease-in-out;
+  }
 
   .dual-bg-image {
     background-image: url("/hero.png"), url("/hero-bg.png");
@@ -50,7 +53,7 @@
     top: -100px;
     height: 650px;
     width: 650px;
-    background-image: url("/hero.png"); /* Одно фоновое изображение для .custom-bg */
+    background-image: url("/hero.png");
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: 320px;
