@@ -19,10 +19,7 @@ const MenubarRadioGroup = MenubarPrimitive.RadioGroup;
 const Menubar = React.forwardRef(({ className, ...props }, ref) => (
   <MenubarPrimitive.Root
     ref={ref}
-    className={cn(
-      "flex h-10 items-center space-x-1 rounded-md border border-neutral-200 bg-white p-1 dark:border-neutral-800 dark:bg-neutral-950",
-      className
-    )}
+    className={cn("flex justify-center items-center", className)}
     {...props}
   />
 ));
@@ -32,7 +29,7 @@ const MenubarTrigger = React.forwardRef(({ className, ...props }, ref) => (
   <MenubarPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex cursor-default select-none items-center rounded-sm px-3 py-1.5 text-sm font-medium outline-none focus:bg-neutral-100 focus:text-neutral-900 data-[state=open]:bg-neutral-100 data-[state=open]:text-neutral-900 dark:focus:bg-neutral-800 dark:focus:text-neutral-50 dark:data-[state=open]:bg-neutral-800 dark:data-[state=open]:text-neutral-50",
+      "flex text-center justify-center items-center cursor-pointer select-none h-full",
       className
     )}
     {...props}

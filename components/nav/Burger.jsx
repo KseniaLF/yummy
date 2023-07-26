@@ -10,6 +10,8 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { HiMenu } from "react-icons/hi";
+
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about/breakfast" },
@@ -22,7 +24,9 @@ export const Burger = () => {
   return (
     <Menubar className="block lg:hidden" type="button">
       <MenubarMenu>
-        <MenubarTrigger>Menu</MenubarTrigger>
+        <MenubarTrigger>
+          <HiMenu size={30} className="" />
+        </MenubarTrigger>
 
         <MenubarContent>
           {navItems.map((item) => {
