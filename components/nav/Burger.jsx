@@ -25,7 +25,7 @@ export const Burger = () => {
     <Menubar className="block lg:hidden" type="button">
       <MenubarMenu>
         <MenubarTrigger>
-          <HiMenu size={30} className="" />
+          <HiMenu size={30} />
         </MenubarTrigger>
 
         <MenubarContent>

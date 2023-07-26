@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useSession, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
+import { SignOut } from "../user/SignOut";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -34,9 +35,7 @@ export const Navigation = () => {
       {session?.data && <Link href={"/categories/breakfast"}>Profile</Link>}
 
       {session?.data ? (
-        <Link href="#" onClick={() => signOut({ callbackUrl: "/" })}>
-          Sign Out
-        </Link>
+        <SignOut />
       ) : (
         <Link href={"/api/auth/signin"}>Sign In</Link>
       )}
