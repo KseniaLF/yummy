@@ -3,8 +3,6 @@ import { Button } from "../Button";
 import { CardList } from "./CardList";
 
 export const DishList = ({ title, dishesArr }) => {
-  console.log(categories[0]);
-
   return (
     <div className="mt-40 ">
       {categories.map((category) => {
