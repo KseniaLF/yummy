@@ -7,6 +7,7 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about/breakfast" },
   { label: "Categories", href: "/categories/breakfast" },
+  { label: "Add Recipe", href: "/add" },
 ];
 
 export const Navigation = () => {
