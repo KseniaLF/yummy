@@ -15,7 +15,7 @@ export const CardList = ({ recipeArr }) => {
             <Card
               name={recipe.dish}
               image={recipe.image}
-              className="w-[300px] h-[320px] object-cover rounded-lg"
+              className="h-[320px] object-cover rounded-lg"
             />
           </Link>
         </li>

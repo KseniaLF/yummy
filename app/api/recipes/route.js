@@ -6,7 +6,6 @@ export const GET = async (request) => {
     await connectToDB();
 
     const recipes = await Recipe.find({}).populate("creator");
-    console.log(recipes);
 
     return new Response(JSON.stringify(recipes), { status: 200 });
   } catch (error) {

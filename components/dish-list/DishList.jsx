@@ -10,7 +10,6 @@ async function getDishes() {
 
 export const DishList = async () => {
   const dishes = await getDishes();
-  console.log(dishes);
 
   return (
     <div className="mt-40 ">

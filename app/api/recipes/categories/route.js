@@ -23,8 +23,6 @@ export const GET = async (request) => {
       return acc;
     }, []);
 
-    console.log(filteredByCategories);
-
     return new Response(JSON.stringify(filteredByCategories), { status: 200 });
   } catch (error) {
     return new Response(error, { status: 500 });

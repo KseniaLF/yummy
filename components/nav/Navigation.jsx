@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useSession } from "next-auth/react";
-import { SignOut } from "../user/SignOut";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -13,9 +11,6 @@ const navItems = [
 
 export const Navigation = () => {
   const pathname = usePathname();
-  const session = useSession();
-
-  console.log(session);
 
   return (
     <nav className="hidden lg:flex items-center gap-7">
@@ -31,14 +26,6 @@ export const Navigation = () => {
           </Link>
         );
       })}
-
-      {session?.data && <Link href={"/categories/breakfast"}>Profile</Link>}
-
-      {session?.data ? (
-        <SignOut />
-      ) : (
-        <Link href={"/api/auth/signin"}>Sign In</Link>
-      )}
     </nav>
   );
 };
