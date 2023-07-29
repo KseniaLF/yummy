@@ -27,7 +27,7 @@ export default function Home() {
         </div>
       </div>
 
-      <DishList title={"Breakfast"} />
+      <DishList />
     </main>
   );
 }

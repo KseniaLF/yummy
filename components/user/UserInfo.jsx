@@ -13,16 +13,21 @@ import {
   MenubarTrigger,
 } from "@/components/UI/menubar";
 import { SignOut } from "./SignOut";
+import Image from "next/image";
+import Link from "next/link";
 
 export async function UserInfo() {
   const session = await getServerSession(authConfig);
+  console.log(session);
 
   return (
     <Menubar>
       <MenubarMenu>
+        {!session?.user && <Link href={"/api/auth/signin"}>Sign In</Link>}
+
         <MenubarTrigger className="flex gap-3 items-center">
           {session?.user?.image && (
-            <img
+            <Image
               className="rounded-full"
               width={50}
               height={50}
@@ -42,7 +47,7 @@ export async function UserInfo() {
           </MenubarItem>
           <MenubarSeparator />
           <MenubarItem>
-            <SignOut className="w-full p-2 text-center rounded-md hover-bg" />
+            <SignOut />
           </MenubarItem>
         </MenubarContent>
       </MenubarMenu>

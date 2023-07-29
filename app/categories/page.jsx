@@ -2,8 +2,6 @@ import { SectionTitleSkeleton } from "@/components/UI/SectionTitle";
 import { Skeleton } from "@/components/UI/skeleton";
 
 export default function Categories(props) {
-  console.log(props.params.id);
-
   return (
     <div className="container">
       <SectionTitleSkeleton />
