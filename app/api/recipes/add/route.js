@@ -2,12 +2,12 @@ import Recipe from "@/models/recipe";
 import { connectToDB } from "@/utils/database";
 
 export const POST = async (req) => {
-  const { userId, title } = await req.json();
+  const { userId, dish, category } = await req.json();
 
   try {
     await connectToDB();
 
-    const newRecipe = new Recipe({ creator: userId, title });
+    const newRecipe = new Recipe({ creator: userId, dish, category });
 
     await newRecipe.save();
 

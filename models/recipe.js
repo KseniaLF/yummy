@@ -1,18 +1,25 @@
 import { Schema, model, models } from "mongoose";
 
-import "./user";
+import User from "./user";
 
-const RecipeSchema = new Schema({
-  title: {
-    type: String,
-    required: [true, "Title is required"],
+const RecipeSchema = new Schema(
+  {
+    dish: {
+      type: String,
+      required: [true, "Dish is required"],
+    },
+    category: {
+      type: String,
+      required: [true, "Category is required"],
+    },
+    creator: {
+      type: Schema.Types.ObjectId,
+      ref: User,
+      required: [true, "Creator is required"],
+    },
   },
-  creator: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-    required: [true, "Creator is required"],
-  },
-});
+  { timestamps: true, versionKey: false }
+);
 
 const Recipe = models.Recipe || model("Recipe", RecipeSchema);
 

@@ -1,19 +1,22 @@
 import { Schema, model, models } from "mongoose";
 
-const UserSchema = new Schema({
-  email: {
-    type: String,
-    unique: [true, "Email already in use"],
-    required: [true, "Email is required"],
+const UserSchema = new Schema(
+  {
+    email: {
+      type: String,
+      unique: [true, "Email already in use"],
+      required: [true, "Email is required"],
+    },
+    //   usermame: {
+    //     type: String,
+    //     required: [true, "Email is required"],
+    //   },
+    //   image: {
+    //     type: String,
+    //   },
   },
-  //   usermame: {
-  //     type: String,
-  //     required: [true, "Email is required"],
-  //   },
-  //   image: {
-  //     type: String,
-  //   },
-});
+  { timestamps: true, versionKey: false }
+);
 
 const User = models.User || model("User", UserSchema);
 
