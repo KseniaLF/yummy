@@ -10,8 +10,13 @@ export const CardList = ({ recipeArr }) => {
            ${index >= 2 && "hidden md:hidden lg:block"} `}
           key={recipe.dish}
         >
+          {console.log(recipe)}
           <Link href={`/about/${recipe.name}`}>
-            <Card name={recipe.dish} />
+            <Card
+              name={recipe.dish}
+              image={recipe.image}
+              className="w-[300px] h-[320px] object-cover rounded-lg"
+            />
           </Link>
         </li>
       ))}

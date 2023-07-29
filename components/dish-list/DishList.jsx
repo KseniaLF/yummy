@@ -1,4 +1,3 @@
-import { categories } from "./data.json";
 import { Button } from "../Button";
 import { CardList } from "./CardList";
 

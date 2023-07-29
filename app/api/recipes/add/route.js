@@ -7,7 +7,7 @@ export const POST = async (req) => {
   try {
     await connectToDB();
 
-    const newRecipe = new Recipe({ creator: userId, dish, category });
+    const newRecipe = new Recipe({ creator: userId, dish, category, image });
 
     await newRecipe.save();
 

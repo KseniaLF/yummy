@@ -17,6 +17,9 @@ const RecipeSchema = new Schema(
       ref: User,
       required: [true, "Creator is required"],
     },
+    image: {
+      type: String,
+    },
   },
   { timestamps: true, versionKey: false }
 );
