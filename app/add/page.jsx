@@ -18,10 +18,10 @@ export default function Add() {
   const createPrompt = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    console.log(session.user.id);
+    console.log(session?.user.id);
 
     try {
-      const response = await fetch(`${process.env.BASE_URL}/api/recipes/add`, {
+      const response = await fetch(`/api/recipes/add`, {
         method: "POST",
         body: JSON.stringify({
           userId: session.user.id,

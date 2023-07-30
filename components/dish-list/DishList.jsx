@@ -2,10 +2,11 @@ import { Button } from "../Button";
 import { CardList } from "./CardList";
 
 async function getDishes() {
-  const res = await fetch(`${process.env.BASE_URL}/api/recipes/categories`, {
-    next: { revalidate: 10 },
+  const res = await import("../../app/api/recipes/categories/route", {
+    next: { revalidate: 60 },
   });
-  return res.json();
+  const data = await (await res.GET()).json();
+  return data.filteredByCategories;
 }
 
 export const DishList = async () => {

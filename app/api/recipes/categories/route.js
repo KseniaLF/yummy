@@ -1,5 +1,6 @@
 import Recipe from "@/models/recipe";
 import { connectToDB } from "@/utils/database";
+import { NextResponse } from "next/server";
 
 export const GET = async (request) => {
   try {
@@ -23,8 +24,10 @@ export const GET = async (request) => {
       return acc;
     }, []);
 
-    return new Response(JSON.stringify(filteredByCategories), { status: 200 });
+    return NextResponse.json({ filteredByCategories });
+    // return new Response(JSON.stringify(filteredByCategories), { status: 200 });
   } catch (error) {
-    return new Response(error, { status: 500 });
+    return NextResponse.json({ error });
+    // return new Response(error, { status: 500 });
   }
 };
