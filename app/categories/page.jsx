@@ -1,7 +1,7 @@
 import { SectionTitleSkeleton } from "@/components/UI/SectionTitle";
 import { Skeleton } from "@/components/UI/skeleton";
 
-export default function Categories(props) {
+export default function Categories() {
   return (
     <div className="container">
       <SectionTitleSkeleton />
