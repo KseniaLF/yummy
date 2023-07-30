@@ -44,6 +44,7 @@ export default async function Post({ params: { id } }) {
   );
 }
 
+// work
 // async function getRecipes(id) {
 //   try {
 //     const res = await fetch(
@@ -58,6 +59,7 @@ export default async function Post({ params: { id } }) {
 //   }
 // }
 
+// not work - i want it to work!!
 // async function getRecipes(id) {
 //   try {
 //     const res = await import(`../../api/all/categories/${id}/route`);
