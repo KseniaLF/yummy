@@ -20,6 +20,11 @@ const RecipeSchema = new Schema(
     image: {
       type: String,
     },
+    // status: {
+    //   type: String,
+    //   enum: ["default", "favorite"],
+    //   default: "default",
+    // },
   },
   { timestamps: true, versionKey: false }
 );

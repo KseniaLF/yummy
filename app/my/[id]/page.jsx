@@ -38,17 +38,24 @@ export default async function Post({ params: { id } }) {
           <span>20 min</span>
         </div>
 
-        {/* <div className="container">
-          {recipe.image && (
-            <Image
-              src={recipe.image}
-              alt="Logo"
-              width={400}
-              height={300}
-              className="rounded-lg"
-            />
-          )}
-        </div> */}
+        <div className="container mt-8">
+          <div className="flex flex-wrap">
+            <div>
+              <p>Recipe Preparation</p>
+              <p>...</p>
+            </div>
+
+            {recipe.image && (
+              <Image
+                src={recipe.image}
+                alt="Logo"
+                width={400}
+                height={300}
+                className="rounded-lg"
+              />
+            )}
+          </div>
+        </div>
       </>
     )
   );
