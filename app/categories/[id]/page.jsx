@@ -1,23 +1,23 @@
 import { categories } from "../../../components/dish-list/data.json";
 import { CategoriesList } from "../CategoriesList";
+import { headers } from "next/headers";
 
-async function getPokemons(id) {
+async function getRecipes({ host, id }) {
   try {
-    const promiseA = new Promise((resolve) => {
-      const filteredArr = categories.find((i) => i.name.toLowerCase() === id);
-
-      resolve(filteredArr);
+    const res = await fetch(`http://${host}/api/recipes/categories/${id}`, {
+      method: "GET",
     });
 
-    // await new Promise((resolve) => setTimeout(resolve, 10000)); // so good!!!
-    return promiseA;
+    const data = await res.json();
+    return data.recipes;
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }
 
 export default async function Post({ params: { id } }) {
-  const { recipes } = await getPokemons(id);
+  const host = headers().get("host");
+  const recipes = await getRecipes({ host, id });
 
   return (
     <>

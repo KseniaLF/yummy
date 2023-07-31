@@ -61,6 +61,15 @@
     z-index: -1;
   }
 
+  .custom-bg-my {
+    height: 100vh; /* Здесь используется высота вьюпорта (viewport height), чтобы картинка занимала всю высоту экрана */
+    background-image: url("/myrecipe.png");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+    z-index: -1;
+  }
+
   @media screen and (min-width: 768px) {
     .custom-bg {
       top: -50px;
