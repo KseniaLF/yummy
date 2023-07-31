@@ -9,15 +9,15 @@ export const GET = async (request) => {
     const recipes = await Recipe.find({}).populate("creator");
 
     const filteredByCategories = recipes.reduce((acc, recipe) => {
-      const { category, dish, image } = recipe;
+      const { category, dish, image, _id: id } = recipe;
       const categoryIndex = acc.findIndex((item) => item.name === category);
 
       if (categoryIndex !== -1) {
-        acc[categoryIndex].recipes.push({ dish, image });
+        acc[categoryIndex].recipes.push({ dish, image, id });
       } else {
         acc.push({
           name: category,
-          recipes: [{ dish, image }],
+          recipes: [{ dish, image, id }],
         });
       }
 

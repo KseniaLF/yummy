@@ -17,7 +17,6 @@ async function getRecipe({ host, id }) {
 export default async function Post({ params: { id } }) {
   const host = headers().get("host");
   const recipe = await getRecipe({ host, id });
-  console.log(recipe);
 
   return (
     recipe && (
