@@ -10,6 +10,7 @@ export const CategoriesList = ({ recipeArr }) => {
         <li className="relative" key={recipe._id}>
           <Link href={`/my/${recipe._id}`}>
             <Card
+              image={recipe.image}
               name={recipe.dish}
               className="w-[300px] h-[320px] object-cover rounded-lg"
             />

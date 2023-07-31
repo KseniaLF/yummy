@@ -25,6 +25,11 @@ const RecipeSchema = new Schema(
     //   enum: ["default", "favorite"],
     //   default: "default",
     // },
+    category: {
+      type: String,
+      enum: ["miscellaneous", "breakfast", "chicken", "desserts"],
+      default: "miscellaneous",
+    },
   },
   { timestamps: true, versionKey: false }
 );
