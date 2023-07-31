@@ -2,7 +2,7 @@ import { Button } from "../Button";
 import { CardList } from "./CardList";
 
 async function getDishes() {
-  const res = await import("../../app/api/all/categories/route", {
+  const res = await import("../../app/api/recipes/categories/route", {
     next: { revalidate: 60 },
   });
   const data = await (await res.GET()).json();
