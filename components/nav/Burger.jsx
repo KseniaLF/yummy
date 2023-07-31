@@ -16,6 +16,8 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about/breakfast" },
   { label: "Categories", href: "/categories/breakfast" },
+  { label: "Add Recipe", href: "/add" },
+  { label: "My Recipes", href: "/my" },
 ];
 
 export const Burger = () => {

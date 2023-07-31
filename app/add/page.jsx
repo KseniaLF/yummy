@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/Button";
 import { SectionTitle } from "@/components/UI/SectionTitle";
+import { SelectCategory } from "@/components/add-dish/selectCategory";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -13,7 +14,7 @@ export default function Add() {
   const type = "Create";
 
   const [submitting, setIsSubmitting] = useState(false);
-  const [recipe, setPost] = useState({ dish: "" });
+  const [recipe, setRecipe] = useState({ dish: "", category: "" });
 
   const createPrompt = async (e) => {
     e.preventDefault();
@@ -26,9 +27,7 @@ export default function Add() {
         body: JSON.stringify({
           userId: session?.user.id,
           dish: recipe.dish,
-          category: "Miscellaneous",
-          image:
-            "https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1158&q=80",
+          category: recipe.category,
         }),
       });
 
@@ -42,6 +41,11 @@ export default function Add() {
     }
   };
 
+  const handleCategoryChange = (category) => {
+    console.log("Selected category:", category);
+    setRecipe({ ...recipe, category });
+  };
+
   return (
     <main className="container ">
       <SectionTitle>Add Recipe</SectionTitle>
@@ -52,7 +56,7 @@ export default function Add() {
         <div>
           <textarea
             value={recipe.dish}
-            onChange={(e) => setPost({ ...recipe, dish: e.target.value })}
+            onChange={(e) => setRecipe({ ...recipe, dish: e.target.value })}
             placeholder="Write your dish here"
             required
           />
@@ -67,6 +71,8 @@ export default function Add() {
             {submitting ? `Creating...` : type}
           </Button>
         </div>
+
+        <SelectCategory onCategoryChange={handleCategoryChange} />
       </form>
     </main>
   );

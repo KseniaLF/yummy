@@ -1,13 +1,26 @@
 import Recipe from "@/models/recipe";
 import { connectToDB } from "@/utils/database";
+import { getImgFromUnsplash } from "@/utils/unsplash-fetch";
 
 export const POST = async (req) => {
   const { userId, dish, category, image } = await req.json();
 
+  let updatedImage = image;
   try {
+    if (!image) {
+      const randomImage = await getImgFromUnsplash(dish);
+
+      if (randomImage) updatedImage = randomImage;
+    }
+
     await connectToDB();
 
-    const newRecipe = new Recipe({ creator: userId, dish, category, image });
+    const newRecipe = new Recipe({
+      creator: userId,
+      dish,
+      category,
+      image: updatedImage,
+    });
 
     await newRecipe.save();
 

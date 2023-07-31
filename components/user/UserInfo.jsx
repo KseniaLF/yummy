@@ -38,7 +38,7 @@ export async function UserInfo() {
           {session?.user?.name}
         </MenubarTrigger>
 
-        <MenubarContent>
+        <MenubarContent className="bg-[#8baa36d1] border-none">
           <MenubarItem>
             Edit profile
             <MenubarShortcut>

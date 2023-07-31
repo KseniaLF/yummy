@@ -8,10 +8,9 @@ export const CardList = ({ recipeArr }) => {
         <li
           className={`relative ${index === 1 && "hidden md:block"}
            ${index >= 2 && "hidden md:hidden lg:block"} `}
-          key={recipe.dish}
+          key={recipe.id}
         >
-          {console.log(recipe)}
-          <Link href={`/about/${recipe.name}`}>
+          <Link href={`/my/${recipe.id}`}>
             <Card
               name={recipe.dish}
               image={recipe.image}

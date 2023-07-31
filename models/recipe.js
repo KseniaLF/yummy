@@ -15,10 +15,20 @@ const RecipeSchema = new Schema(
     creator: {
       type: Schema.Types.ObjectId,
       ref: User,
-      required: [true, "Creator is required"],
+      required: [true, "Creator: userId is required"],
     },
     image: {
       type: String,
+    },
+    // status: {
+    //   type: String,
+    //   enum: ["default", "favorite"],
+    //   default: "default",
+    // },
+    category: {
+      type: String,
+      enum: ["miscellaneous", "breakfast", "chicken", "desserts"],
+      default: "miscellaneous",
     },
   },
   { timestamps: true, versionKey: false }
