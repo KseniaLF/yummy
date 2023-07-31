@@ -62,11 +62,41 @@
   }
 
   .custom-bg-my {
-    height: 100vh; /* Здесь используется высота вьюпорта (viewport height), чтобы картинка занимала всю высоту экрана */
+    position: absolute;
+    width: 100%;
+    top: 0;
+
+    height: 550px;
     background-image: url("/myrecipe.png");
     background-repeat: no-repeat;
-    background-position: top;
-    background-size: contain;
+    background-position: bottom;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  .custom-bg-my-sm {
+    position: absolute;
+    width: 100%;
+    top: 0;
+
+    height: 550px;
+    background-image: url("/my-bg-sm.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  .custom-bg-my-md {
+    position: absolute;
+    width: 100%;
+    top: 0;
+
+    height: 400px;
+    background-image: url("/my-bg-md.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
     z-index: -1;
   }
 
