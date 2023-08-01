@@ -23,6 +23,13 @@
     @apply flex justify-between;
   }
 
+  .hide-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   .custom-rounded {
     border-top-right-radius: 50px;
     border-bottom-right-radius: 20px;
