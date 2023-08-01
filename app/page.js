@@ -20,10 +20,12 @@ export default function Home() {
           <input
             type="Enter the text"
             placeholder="Beef"
-            className="py-4 md:py-5 lg:py-6 pl-7 lg:pl-10 pr-[135px] md:pr-[150px] lg:pr-[185px]  w-[300px] md:w-[360px] lg:w-[500px] border-2 border-main hover:border-main outline-0 text-base custom-rounded "
+            className="py-4 md:py-5 lg:py-6 pl-7 lg:pl-10 pr-[135px] md:pr-[150px] lg:pr-[185px] w-[300px] md:w-[360px] lg:w-[500px] border-2 border-main hover:border-main outline-0 custom-rounded "
           ></input>
 
-          <Button className="absolute top-0 right-0 ">Search</Button>
+          <Button className="absolute top-0 right-0 border-2 border-second">
+            Search
+          </Button>
         </div>
       </div>
 

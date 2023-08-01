@@ -19,7 +19,6 @@ export default function Add() {
   const createPrompt = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // console.log(session?.user.id);
 
     try {
       const response = await fetch(`/api/recipes/add`, {
@@ -32,7 +31,7 @@ export default function Add() {
       });
 
       if (response.ok) {
-        router.push("/");
+        router.push("/my");
       }
     } catch (error) {
       console.log(error);

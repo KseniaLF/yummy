@@ -14,13 +14,17 @@ export default function MyRecipeList({ userId }) {
   return (
     <>
       {recipes && (
-        <ul className="flex flex-col gap-4">
+        <ul className="flex flex-col-reverse gap-4">
           {recipes.map((recipe) => (
             <li key={recipe._id}>
               <MyRecipeCard recipe={recipe} />
             </li>
           ))}
         </ul>
+      )}
+
+      {recipes?.length === 0 && (
+        <p className="text-center">There are no recipes here yet 💔</p>
       )}
     </>
   );
