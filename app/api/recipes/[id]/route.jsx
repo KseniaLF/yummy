@@ -15,3 +15,17 @@ export const GET = async (req, { params }) => {
     return NextResponse.json(error, { status: 500 });
   }
 };
+
+export const DELETE = async (request, { params }) => {
+  const id = params.id;
+
+  try {
+    await connectToDB();
+
+    await Recipe.findByIdAndRemove(id);
+
+    return NextResponse.json("Recipe deleted successfully", { status: 200 });
+  } catch (error) {
+    return NextResponse.json("Error deleting recipe", { status: 500 });
+  }
+};

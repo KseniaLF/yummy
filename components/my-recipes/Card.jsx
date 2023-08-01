@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { LuTrash2 } from "react-icons/lu";
+import Link from "next/link";
+import { DeleteRecipeBtn } from "./DeleteRecipeBtn";
 
 export const MyRecipeCard = ({ recipe }) => {
   return (
@@ -20,12 +21,7 @@ export const MyRecipeCard = ({ recipe }) => {
         <div className="between">
           <p className="text-sm md:text-2xl">{recipe.dish}</p>
 
-          <button
-            type="button"
-            className="p-[5px] md:p-2 lg:p-3 rounded-md bg-main text-base md:text-xl lg:text-2xl text-white"
-          >
-            <LuTrash2 />
-          </button>
+          <DeleteRecipeBtn recipeId={recipe._id} />
         </div>
 
         <p className="hide-text max-w-[90%]">
@@ -39,12 +35,14 @@ export const MyRecipeCard = ({ recipe }) => {
         <div className="between items-center mt-4">
           <span>20 min</span>
 
-          <button
-            type="button"
-            className="text-xs md:text-sm lg:text-base text-white custom-rounded bg-second py-2 md:py-3 px-4 md:px-8 hover-bg "
-          >
-            See recipe
-          </button>
+          <Link href={`/my/${recipe._id}`}>
+            <span
+              type="button"
+              className="text-xs md:text-sm lg:text-base text-white custom-rounded bg-second py-2 md:py-3 px-4 md:px-8 hover-bg"
+            >
+              See recipe
+            </span>
+          </Link>
         </div>
       </div>
     </div>
