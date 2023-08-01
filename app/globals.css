@@ -19,6 +19,10 @@
 }
 
 @layer utilities {
+  .between {
+    @apply flex justify-between;
+  }
+
   .custom-rounded {
     border-top-right-radius: 50px;
     border-bottom-right-radius: 20px;
@@ -126,6 +130,7 @@
 
   body {
     @apply font-sans;
+    background-color: #fafafa;
   }
 }
 
