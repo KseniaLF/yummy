@@ -18,7 +18,6 @@ import Link from "next/link";
 
 export async function UserInfo() {
   const session = await getServerSession(authConfig);
-  console.log(session);
 
   return (
     <Menubar>

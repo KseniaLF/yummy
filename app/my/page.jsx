@@ -1,9 +1,18 @@
-import Image from "next/image";
+import { authConfig } from "@/configs/auth";
+import { getServerSession } from "next-auth";
 
-export default function MyRecipes() {
+import { SectionTitle } from "@/components/UI/SectionTitle";
+import MyRecipeList from "@/components/my-recipes/MyRecipeList";
+
+export default async function MyRecipes() {
+  const session = await getServerSession(authConfig);
+  const userId = session?.user.id;
+
   return (
-    <div>
-      <div className="custom-bg-my"></div>
+    <div className="container">
+      <SectionTitle>my recipes</SectionTitle>
+
+      <MyRecipeList userId={userId} />
     </div>
   );
 }

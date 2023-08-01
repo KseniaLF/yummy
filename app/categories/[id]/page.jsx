@@ -1,5 +1,4 @@
-import { categories } from "../../../components/dish-list/data.json";
-import { CategoriesList } from "../CategoriesList";
+import { CategoriesList } from "../../../components/categories/CategoriesList";
 import { headers } from "next/headers";
 
 async function getRecipes({ host, id }) {

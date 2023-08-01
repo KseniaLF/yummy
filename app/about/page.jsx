@@ -9,7 +9,6 @@ async function getPokemons() {
 
 export default async function About() {
   const { results } = await getPokemons();
-  // console.log(results);
 
   return (
     <>
