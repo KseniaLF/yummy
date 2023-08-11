@@ -2,6 +2,7 @@
 
 import useSWR from "swr";
 import { MyRecipeCard } from "@/components/my-recipes/Card";
+import { toast } from "react-hot-toast";
 
 async function getAllMyRecipes(url, userId) {
   try {

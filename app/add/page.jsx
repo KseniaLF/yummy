@@ -3,10 +3,12 @@
 import { Button } from "@/components/Button";
 import { SectionTitle } from "@/components/UI/SectionTitle";
 import { SelectCategory } from "@/components/add-dish/selectCategory";
+import axios from "axios";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 export default function Add() {
   const router = useRouter();
@@ -20,20 +22,22 @@ export default function Add() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      const response = await fetch(`/api/recipes/add`, {
-        method: "POST",
-        body: JSON.stringify({
-          userId: session?.user.id,
-          dish: recipe.dish,
-          category: recipe.category,
-        }),
-      });
+    const toastId = toast.loading("Please wait...");
 
-      if (response.ok) {
-        router.push("/my");
-      }
+    try {
+      const response = await axios.post(`/api/recipes/ad4d`, {
+        userId: session?.user.id,
+        dish: recipe.dish,
+        category: recipe.category,
+      });
+      toast.success("The recipe was created 🎉", {
+        id: toastId,
+      });
+      // router.push("/my");
     } catch (error) {
+      toast.error("Something went wrong, try again. " + error.message, {
+        id: toastId,
+      });
       console.log(error);
     } finally {
       setIsSubmitting(false);
