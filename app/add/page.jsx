@@ -25,7 +25,7 @@ export default function Add() {
     const toastId = toast.loading("Please wait...");
 
     try {
-      const response = await axios.post(`/api/recipes/ad4d`, {
+      const response = await axios.post(`/api/recipes/add`, {
         userId: session?.user.id,
         dish: recipe.dish,
         category: recipe.category,
