@@ -3,13 +3,36 @@
 import useSWR from "swr";
 import { MyRecipeCard } from "@/components/my-recipes/Card";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+async function getAllMyRecipes(url, userId) {
+  try {
+    const data = await fetch(`${url}`, {
+      method: "GET",
+      headers: {
+        "X-User-Id": userId,
+      },
+    });
+    return data.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 export default function MyRecipeList({ userId }) {
-  const { data: recipes, mutate } = useSWR(
-    `/api/recipes/my/${userId}`,
-    fetcher
-  );
+  const {
+    data: recipes,
+    mutate,
+    error,
+  } = useSWR(`/api/recipes/my`, (url) => getAllMyRecipes(url, userId), {
+    revalidateOnFocus: false,
+  });
+
+  if (error) {
+    return <p>Error</p>;
+  }
+  console.log(userId);
+  if (!recipes) {
+    return <p>loading</p>;
+  }
 
   return (
     <>

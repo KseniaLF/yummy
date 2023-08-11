@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "../Button";
 import { CardList } from "./CardList";
 
@@ -22,7 +23,7 @@ export const DishList = async () => {
             <CardList recipeArr={category.recipes} />
 
             <div className="text-end">
-              <Button>See all</Button>
+              <Link href={`/categories/${category.name}`}>See all</Link>
             </div>
           </div>
         );

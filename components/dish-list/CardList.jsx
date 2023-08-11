@@ -7,7 +7,8 @@ export const CardList = ({ recipeArr }) => {
       {recipeArr.map((recipe, index) => (
         <li
           className={`relative ${index === 1 && "hidden md:block"}
-           ${index >= 2 && "hidden md:hidden lg:block"} `}
+           ${index >= 2 && "hidden md:hidden lg:block"} 
+           ${index >= 4 && "hidden md:hidden lg:hidden"} `}
           key={recipe.id}
         >
           <Link href={`/my/${recipe.id}`}>

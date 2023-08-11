@@ -3,7 +3,7 @@ import { DishList } from "@/components/dish-list/DishList";
 
 export default function Home() {
   return (
-    <main className="container relative">
+    <main className="container relative cursor-default">
       <div className="custom-bg"></div>
 
       <div className="pt-14 md:pt-36 lg:pt-44 container text-center md:text-start">

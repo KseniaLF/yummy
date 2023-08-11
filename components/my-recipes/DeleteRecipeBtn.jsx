@@ -15,10 +15,7 @@ async function deleteMyRecipe(url, { arg }) {
 }
 
 export const DeleteRecipeBtn = ({ recipeId }) => {
-  const { trigger } = useSWRMutation(
-    "/api/recipes/my/64c4c5bc9bb0d57f895b6502",
-    deleteMyRecipe
-  );
+  const { trigger } = useSWRMutation("/api/recipes/my", deleteMyRecipe);
 
   return (
     <button
