@@ -2,23 +2,25 @@
 
 import useSWRMutation from "swr/mutation";
 import { LuTrash2 } from "react-icons/lu";
+import { toast } from "react-hot-toast";
 
 async function deleteMyRecipe(url, { arg }) {
   try {
     const data = await fetch(`/api/recipes/${arg}`, {
       method: "DELETE",
     });
+
+    toast.success("Successfully deleted!");
+
     return data.json();
   } catch (error) {
+    toast.sucerrcess("Something went wrong, try again");
     console.log(error);
   }
 }
 
 export const DeleteRecipeBtn = ({ recipeId }) => {
-  const { trigger } = useSWRMutation(
-    "/api/recipes/my/64c4c5bc9bb0d57f895b6502",
-    deleteMyRecipe
-  );
+  const { trigger } = useSWRMutation("/api/recipes/my", deleteMyRecipe);
 
   return (
     <button

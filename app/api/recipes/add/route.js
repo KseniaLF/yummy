@@ -6,13 +6,12 @@ export const POST = async (req) => {
   const { userId, dish, category, image } = await req.json();
 
   let updatedImage = image;
+  if (!image) {
+    const randomImage = await getImgFromUnsplash(dish);
+    if (randomImage) updatedImage = randomImage;
+  }
+
   try {
-    if (!image) {
-      const randomImage = await getImgFromUnsplash(dish);
-
-      if (randomImage) updatedImage = randomImage;
-    }
-
     await connectToDB();
 
     const newRecipe = new Recipe({

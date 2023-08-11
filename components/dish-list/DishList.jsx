@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "../Button";
 import { CardList } from "./CardList";
 
@@ -17,12 +18,12 @@ export const DishList = async () => {
       {dishes.map((category) => {
         return (
           <div className="mt-24 flex flex-col gap-12" key={category.name}>
-            <h2 className="text-[44px]">{category.name}</h2>
+            <h2 className="capitalize text-[44px]">{category.name}</h2>
 
             <CardList recipeArr={category.recipes} />
 
             <div className="text-end">
-              <Button>See all</Button>
+              <Link href={`/categories/${category.name}`}>See all</Link>
             </div>
           </div>
         );
