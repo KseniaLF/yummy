@@ -39,7 +39,7 @@ export const MyRecipeCard = ({ recipe }) => {
         </p>
 
         <div className="between items-center mt-4">
-          <span>20 min</span>
+          {recipe.time ? <span>{recipe.time} min</span> : <span>20 min</span>}
 
           <Link href={`/my/${recipe._id}`}>
             <span

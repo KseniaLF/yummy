@@ -30,6 +30,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 
 const categories = ["miscellaneous", "breakfast", "chicken", "desserts"];
+const timesArr = ["less then 20", "30", "60", "more then 65"];
 
 export default function Add() {
   const router = useRouter();
@@ -37,13 +38,13 @@ export default function Add() {
   const type = "Create";
 
   const [submitting, setIsSubmitting] = useState(false);
-  const [recipe, setRecipe] = useState({ dish: "", category: "" });
 
   const form = useForm({
     defaultValues: {
       dish: "",
       category: "breakfast",
       description: "",
+      time: "30",
     },
   });
 
@@ -72,16 +73,15 @@ export default function Add() {
     }
   };
 
-  const handleCategoryChange = (category) => {
-    console.log("Selected category:", category);
-    setRecipe({ ...recipe, category });
-  };
-
   return (
     <main className="container">
       <SectionTitle>Add Recipe</SectionTitle>
+
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(createRecipe)} className="space-y-8">
+        <form
+          onSubmit={form.handleSubmit(createRecipe)}
+          className="space-y-8 max-w-md m-auto"
+        >
           <FormField
             control={form.control}
             name="dish"
@@ -129,7 +129,7 @@ export default function Add() {
             name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Bio</FormLabel>
+                <FormLabel>Description</FormLabel>
                 <FormControl>
                   <Textarea
                     placeholder="Tell us a little bit about dish"
@@ -137,6 +137,33 @@ export default function Add() {
                     {...field}
                   />
                 </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="time"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Cooking time</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue="30">
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a time" />
+                    </SelectTrigger>
+                  </FormControl>
+
+                  <SelectContent>
+                    {timesArr.map((time) => (
+                      <SelectItem key={time} value={time}>
+                        {time} min
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+
                 <FormMessage />
               </FormItem>
             )}
