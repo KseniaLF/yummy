@@ -22,6 +22,7 @@ export const CategoryFormField = ({ control }) => {
       render={({ field }) => (
         <FormItem>
           <FormLabel>Category</FormLabel>
+
           <Select onValueChange={field.onChange} defaultValue="breakfast">
             <FormControl>
               <SelectTrigger>

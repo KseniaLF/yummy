@@ -23,6 +23,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { recipeSchema } from "@/schemas/recipeSchema";
 import { CategoryFormField } from "@/components/form/CategoryFormField";
 import { TimeFormField } from "@/components/form/TimeFormField";
+import { cn } from "@/lib/utils";
 
 export default function Add() {
   const router = useRouter();
@@ -65,6 +66,8 @@ export default function Add() {
     }
   };
 
+  const errors = form.formState.errors;
+
   return (
     <main className="container">
       <SectionTitle>Add Recipe</SectionTitle>
@@ -80,8 +83,13 @@ export default function Add() {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Dish name</FormLabel>
+
                 <FormControl>
-                  <Input placeholder="shadcn" {...field} />
+                  <Input
+                    placeholder="shadcn"
+                    className={cn(errors.dish && "text-err")}
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -99,7 +107,7 @@ export default function Add() {
                 <FormControl>
                   <Textarea
                     placeholder="Tell us a little bit about dish"
-                    className="resize-none"
+                    className={`${cn(errors.dish && "text-err")} resize-none`}
                     {...field}
                   />
                 </FormControl>

@@ -36,6 +36,7 @@ module.exports = {
 
     colors: {
       main: "#8BAA36",
+      err: "#FF3300",
       second: "#22252A",
       white: "#FFFFFF",
     },
