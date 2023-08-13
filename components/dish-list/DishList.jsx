@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "../Button";
 import { CardList } from "./CardList";
 
 async function getDishes() {
@@ -22,8 +21,10 @@ export const DishList = async () => {
 
             <CardList recipeArr={category.recipes} />
 
-            <div className="text-end">
-              <Link href={`/categories/${category.name}`}>See all</Link>
+            <div className="text-end ">
+              <span className="hover-btn-second px-8 py-3 rounded-md cursor-pointer">
+                <Link href={`/categories/${category.name}`}>See all</Link>
+              </span>
             </div>
           </div>
         );

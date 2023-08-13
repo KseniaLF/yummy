@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button";
+import { Skeleton } from "@/components/UI/skeleton";
 import { DishList } from "@/components/dish-list/DishList";
 
 export default function Home() {

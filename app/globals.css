@@ -49,6 +49,9 @@
   .hover-btn {
     @apply bg-main hover:bg-second hover:text-white transition duration-300 ease-in-out;
   }
+  .hover-btn-second {
+    @apply bg-second hover:bg-main text-white transition duration-300 ease-in-out;
+  }
 
   .dual-bg-image {
     background-image: url("/hero.png"), url("/hero-bg.png");

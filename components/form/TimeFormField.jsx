@@ -18,7 +18,7 @@ export const TimeFormField = ({ control }) => {
   return (
     <FormField
       control={control}
-      name="category"
+      name="time"
       render={({ field }) => (
         <FormItem>
           <FormLabel>Cooking time</FormLabel>
