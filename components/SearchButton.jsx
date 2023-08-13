@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 
 export const SearchButton = ({ search }) => {
   const router = useRouter();
-
   const [searchValue, setSearchValue] = useState(search ? search : "");
 
   const handleSubmit = (e) => {
