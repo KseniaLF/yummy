@@ -16,7 +16,9 @@ export default function Home() {
           You can add your own recipes to save them for the future.
         </p>
 
-        <SearchButton />
+        <div className="mt-[330px] md:mt-8 lg:mt-12">
+          <SearchButton />
+        </div>
       </div>
 
       <DishList />
