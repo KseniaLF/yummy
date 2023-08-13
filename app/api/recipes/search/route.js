@@ -19,7 +19,12 @@ export async function GET(req) {
       .skip(skip)
       .limit(itemsPerPage);
 
-    return NextResponse.json(recipes);
+    const totalResults = await Recipe.countDocuments({
+      dish: { $regex: regex },
+    });
+    const totalPages = Math.ceil(totalResults / itemsPerPage);
+
+    return NextResponse.json({ recipes, totalPages });
   } catch (error) {
     return NextResponse.json({ error });
   }

@@ -10,7 +10,7 @@ export const SearchButton = ({ search }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    router.push(`/search?search=${searchValue}`);
+    router.push(`/search?page=1&search=${searchValue}`);
   };
 
   return (

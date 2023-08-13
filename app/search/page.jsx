@@ -2,6 +2,7 @@
 
 import { SearchButton } from "@/components/SearchButton";
 import { SectionTitle } from "@/components/UI/SectionTitle";
+import { Button } from "@/components/UI/button";
 import { CategoriesList } from "@/components/categories/CategoriesList";
 import axios from "axios";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -16,7 +17,7 @@ export default function SearchPage() {
   const [recipes, setRecipes] = useState([]);
 
   const [isLoading, seIsLoading] = useState(true);
-  // const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,7 +25,9 @@ export default function SearchPage() {
         const { data } = await axios.get(
           `/api/recipes/search?page=${page}&search=${search}`
         );
-        setRecipes(data);
+
+        setTotalPages(data.totalPages);
+        setRecipes(data.recipes);
       } catch (err) {
         console.log(err);
       }
@@ -52,23 +55,27 @@ export default function SearchPage() {
         <p className="text-center">There are no recipes here yet 💔</p>
       )}
 
-      <button
-        type="button"
-        disabled={page == 1}
-        onClick={() =>
-          router.push(`/search?search=${search}&page=${Number(page) - 1}`)
-        }
-      >
-        Previos
-      </button>
-      <button
-        type="button"
-        onClick={() =>
-          router.push(`/search?search=${search}&page=${Number(page) + 1}`)
-        }
-      >
-        Next
-      </button>
+      <div className="text-center mt-20">
+        <Button
+          type="button"
+          disabled={page == 1}
+          onClick={() =>
+            router.push(`/search?search=${search}&page=${Number(page) - 1}`)
+          }
+          className="mr-3"
+        >
+          Previos
+        </Button>
+        <Button
+          type="button"
+          disabled={page == totalPages}
+          onClick={() =>
+            router.push(`/search?search=${search}&page=${Number(page) + 1}`)
+          }
+        >
+          Next
+        </Button>
+      </div>
 
       {/* <button type="button" onClick={() => setPage((p) => p - 1)}>
         Previos
