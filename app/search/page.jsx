@@ -43,39 +43,42 @@ export default function SearchPage() {
 
       <div className="text-center">
         <SearchButton search={search} />
-      </div>
 
-      {isLoading && <>Loader</>}
+        <div className="mt-20 text-xl">
+          {isLoading && <>Loader</>}
+          {!isLoading && recipes?.length === 0 && (
+            <p>Nothing was found for your request 💔</p>
+          )}
+        </div>
+      </div>
 
       {!isLoading && recipes?.length !== 0 && (
         <CategoriesList recipeArr={recipes} />
       )}
 
-      {!isLoading && recipes?.length === 0 && (
-        <p className="text-center">There are no recipes here yet 💔</p>
+      {recipes?.length !== 0 && (
+        <div className="text-center mt-20">
+          <Button
+            type="button"
+            disabled={page == 1}
+            onClick={() =>
+              router.push(`/search?search=${search}&page=${Number(page) - 1}`)
+            }
+            className="mr-3"
+          >
+            Previos
+          </Button>
+          <Button
+            type="button"
+            disabled={page == totalPages}
+            onClick={() =>
+              router.push(`/search?search=${search}&page=${Number(page) + 1}`)
+            }
+          >
+            Next
+          </Button>
+        </div>
       )}
-
-      <div className="text-center mt-20">
-        <Button
-          type="button"
-          disabled={page == 1}
-          onClick={() =>
-            router.push(`/search?search=${search}&page=${Number(page) - 1}`)
-          }
-          className="mr-3"
-        >
-          Previos
-        </Button>
-        <Button
-          type="button"
-          disabled={page == totalPages}
-          onClick={() =>
-            router.push(`/search?search=${search}&page=${Number(page) + 1}`)
-          }
-        >
-          Next
-        </Button>
-      </div>
     </div>
   );
 }
