@@ -76,13 +76,6 @@ export default function SearchPage() {
           Next
         </Button>
       </div>
-
-      {/* <button type="button" onClick={() => setPage((p) => p - 1)}>
-        Previos
-      </button>
-      <button type="button" onClick={() => setPage((p) => p + 1)}>
-        Next
-      </button> */}
     </div>
   );
 }
