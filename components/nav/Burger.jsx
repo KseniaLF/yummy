@@ -14,10 +14,11 @@ import { HiMenu } from "react-icons/hi";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about/breakfast" },
+  // { label: "About", href: "/about/breakfast" },
   { label: "Categories", href: "/categories/breakfast" },
   { label: "Add Recipe", href: "/add" },
   { label: "My Recipes", href: "/my" },
+  { label: "Search", href: "/search?search=&page=1" },
 ];
 
 export const Burger = () => {
