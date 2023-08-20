@@ -55,7 +55,7 @@ export default function Add() {
       toast.success("The recipe was created 🎉", {
         id: toastId,
       });
-      // router.push("/my");
+      router.push("/my");
     } catch (error) {
       toast.error("Something went wrong, try again. " + error.message, {
         id: toastId,
