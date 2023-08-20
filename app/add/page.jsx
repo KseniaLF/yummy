@@ -2,24 +2,47 @@
 
 import { Button } from "@/components/Button";
 import { SectionTitle } from "@/components/UI/SectionTitle";
-import { SelectCategory } from "@/components/add-dish/selectCategory";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/UI/form";
+import { Input } from "@/components/UI/input";
+import { Textarea } from "@/components/UI/textarea";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { recipeSchema } from "@/schemas/recipeSchema";
+import { CategoryFormField } from "@/components/form/CategoryFormField";
+import { TimeFormField } from "@/components/form/TimeFormField";
+import { cn } from "@/lib/utils";
 
 export default function Add() {
   const router = useRouter();
   const { data: session } = useSession();
-  const type = "Create";
 
   const [submitting, setIsSubmitting] = useState(false);
-  const [recipe, setRecipe] = useState({ dish: "", category: "" });
 
-  const createPrompt = async (e) => {
-    e.preventDefault();
+  const form = useForm({
+    resolver: zodResolver(recipeSchema),
+    defaultValues: {
+      dish: "",
+      category: "breakfast",
+      description: "",
+      time: "30",
+    },
+  });
+
+  const createRecipe = async (dishData) => {
+    console.log(dishData);
     setIsSubmitting(true);
 
     const toastId = toast.loading("Please wait...");
@@ -27,8 +50,7 @@ export default function Add() {
     try {
       const response = await axios.post(`/api/recipes/add`, {
         userId: session?.user.id,
-        dish: recipe.dish,
-        category: recipe.category,
+        ...dishData,
       });
       toast.success("The recipe was created 🎉", {
         id: toastId,
@@ -44,39 +66,63 @@ export default function Add() {
     }
   };
 
-  const handleCategoryChange = (category) => {
-    console.log("Selected category:", category);
-    setRecipe({ ...recipe, category });
-  };
+  const errors = form.formState.errors;
 
   return (
-    <main className="container ">
+    <main className="container">
       <SectionTitle>Add Recipe</SectionTitle>
 
-      <form onSubmit={createPrompt}>
-        <label>Dish NAME</label>
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(createRecipe)}
+          className="space-y-8 max-w-md m-auto"
+        >
+          <FormField
+            control={form.control}
+            name="dish"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Dish name</FormLabel>
 
-        <div>
-          <textarea
-            value={recipe.dish}
-            onChange={(e) => setRecipe({ ...recipe, dish: e.target.value })}
-            placeholder="Write your dish here"
-            required
+                <FormControl>
+                  <Input
+                    placeholder="shadcn"
+                    className={cn(errors.dish && "text-err")}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        </div>
 
-        <div className="flex gap-4">
-          <Link href="/add" className="text-gray-500 text-sm">
-            Cancel
-          </Link>
+          <CategoryFormField control={form.control} />
+
+          <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Description</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="Tell us a little bit about dish"
+                    className={`${cn(errors.dish && "text-err")} resize-none`}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <TimeFormField control={form.control} />
 
           <Button type="submit" disabled={submitting}>
-            {submitting ? `Creating...` : type}
+            {submitting ? `Creating...` : "Create"}
           </Button>
-        </div>
-
-        <SelectCategory onCategoryChange={handleCategoryChange} />
-      </form>
+        </form>
+      </Form>
     </main>
   );
 }

@@ -3,7 +3,7 @@ import { connectToDB } from "@/utils/database";
 import { getImgFromUnsplash } from "@/utils/unsplash-fetch";
 
 export const POST = async (req) => {
-  const { userId, dish, category, image } = await req.json();
+  const { userId, dish, category, image, description, time } = await req.json();
 
   let updatedImage = image;
   if (!image) {
@@ -19,6 +19,8 @@ export const POST = async (req) => {
       dish,
       category,
       image: updatedImage,
+      description,
+      time,
     });
 
     await newRecipe.save();
